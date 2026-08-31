@@ -87,6 +87,11 @@ const contagemRegressiva = () =>{
         fimContador.play()
         zerar();
         alert('Tempo Finalizado');
+        const focoAtivo = html.getAttribute('data-contexto') == 'foco'
+        if(focoAtivo){
+         const evento = new CustomEvent('FocoFinalizado')
+         document.dispatchEvent(evento)   
+        }
         iconePlayPause.setAttribute('src', `/imagens/play_arrow.png`);
         iniciarOuPausarBt.textContent = 'Começar'
                 longoBt.removeAttribute('disabled', true) 
